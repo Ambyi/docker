@@ -5,12 +5,12 @@
   tasks:
   - name: "Installing Docker Prerequisite packages"
     yum:
-     name: "{{ item }}"
+     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
-    with_items:
-    - yum-utils
-    - device-mapper-persistent-data
-    - lvm2
+    # with_items:
+    # - yum-utils
+    # - device-mapper-persistent-data
+    # - lvm2
   - name: "Configring docker-ce repo"
     get_url:
      url: https://download.docker.com/linux/centos/docker-ce.repo
