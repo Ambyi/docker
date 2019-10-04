@@ -1,15 +1,15 @@
 ---
 - hosts: 10.80.4.122
   user: root
-become: yes
-tasks:
-- name: "Installing Docker Prerequisite packages"
-yum:
-name: "{{ item }}"
-state: latest
-with_items:
-- yum-utils
-- device-mapper-persistent-data
+  become: yes
+  tasks:
+  - name: "Installing Docker Prerequisite packages"
+      yum:
+       name: "{{ item }}"
+       state: latest
+       with_items:
+  - yum-utils
+  - device-mapper-persistent-data
 - lvm2
 - name: "Configring docker-ce repo"
 get_url:
