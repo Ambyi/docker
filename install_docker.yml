@@ -16,10 +16,10 @@
   #    url: https://download.docker.com/linux/fedora/docker-ce.repo
   #    dest: /etc/yum.repos.d/docker-ce.repo
   #    mode: 0644
-  - name: " Installing Docker latest version"
-    yum:
-     name: docker-ce
-     state: present
+  # - name: " Installing Docker latest version"
+  #   yum:
+  #    name: docker-ce
+  #    state: present
   - name: " Starting and Enabling Docker service"
     service:
      name: docker
