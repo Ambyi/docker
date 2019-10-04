@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: 10.80.4.122
   user: root
   become: yes
   tasks:
@@ -7,10 +7,10 @@
     yum:
      name: "{{ item }}"
      state: latest
-     with_items:
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
+    with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
   - name: "Configring docker-ce repo"
     get_url:
      url: https://download.docker.com/linux/centos/docker-ce.repo
