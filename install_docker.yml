@@ -1,7 +1,7 @@
 ---
 - hosts: all
-  #user: ec2-user
-  user: root
+  user: ec2-user
+  #user: root
   become: yes
   tasks:
   - name: "Installing Docker Prerequisite packages"
@@ -12,15 +12,15 @@
     # - yum-utils
     # - device-mapper-persistent-data
     # - lvm2
-  # - name: "Configring docker-ce repo"
-  #   get_url:
-  #    url: https://download.docker.com/linux/fedora/docker-ce.repo
-  #    dest: /etc/yum.repos.d/docker-ce.repo
-  #    mode: 0644
-  # - name: " Installing Docker latest version"
-  #   yum:
-  #    name: docker-ce
-  #    state: present
+  - name: "Configring docker-ce repo"
+    get_url:
+     url: https://download.docker.com/linux/fedora/docker-ce.repo
+     dest: /etc/yum.repos.d/docker-ce.repo
+     mode: 0644
+  - name: " Installing Docker latest version"
+    yum:
+     name: docker-ce
+     state: present
   - name: " Starting and Enabling Docker service"
     service:
      name: docker
