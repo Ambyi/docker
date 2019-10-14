@@ -6,7 +6,7 @@
   - name: "Configring rpm"
     get_url:
      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-     dest: /tmp
+     dest: /tmp/epel-release-latest-7.noarch.rpm
      mode: 0644
   - name: " Installing Docker latest version"
     yum:
@@ -17,7 +17,7 @@
      name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
   - name: "Installing Docker"
-    yum:
+    package:
      name: 'docker-1.13.1'
      state: latest
     # with_items:
