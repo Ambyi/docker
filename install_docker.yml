@@ -5,12 +5,13 @@
   tasks:
   - name: "Installing Docker Prerequisite packages"
     yum:
-     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2','docker-1.13.1-102.git7f2769b.el7.x86_64']
+     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
     # - lvm2
+    # ,'docker-1.13.1-102.git7f2769b.el7.x86_64'
   - name: "Configring docker-ce repo"
     get_url:
      url: https://download.docker.com/linux/fedora/docker-ce.repo
