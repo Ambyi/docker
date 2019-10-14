@@ -3,18 +3,22 @@
   user: ec2-user
   become: yes
   tasks:
-  - name: "Configring docker-ce repo"
+  - name: "Configring rpm"
     get_url:
      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-     dest: /tmp/epel-release-latest-7.noarch.rpm
+     dest: /tmp
      mode: 0644
   - name: " Installing Docker latest version"
     yum:
      name: /tmp/epel-release-latest-7.noarch.rpm
      state: present
-  - name: "Installing Docker Prerequisite packages"
+  - name: "Installing Prerequisite packages"
     yum:
-     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2','docker-1.13.1']
+     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
+     state: latest
+  - name: "Installing Docker"
+    yum:
+     name: 'docker-1.13.1'
      state: latest
     # with_items:
     # - yum-utils
