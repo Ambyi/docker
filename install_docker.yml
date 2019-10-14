@@ -14,7 +14,7 @@
      state: present
   - name: "Installing Prerequisite packages"
     yum:
-     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2','applydeltarpm']
+     name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
   - name: "Configring docker rpm"
     get_url:
@@ -33,7 +33,7 @@
     # - yum-utils
     # - device-mapper-persistent-data
     # - lvm2
-    # ,'docker-1.13.1-102.git7f2769b.el7.x86_64'
+    # ,'docker-1.13.1-102.git7f2769b.el7.x86_64' ,'applydeltarpm'
 
   - name: " Starting and Enabling Docker service"
     service:
