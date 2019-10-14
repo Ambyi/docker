@@ -21,10 +21,6 @@
      url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
      dest: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
      mode: 0644
-  - name: " Installing docker.rpm latest version"
-    yum:
-     name: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-     state: present
   - name: "Configring docker client rpm"
     get_url:
      url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
@@ -43,7 +39,10 @@
     yum:
      name: /tmp/docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
      state: present
-
+  - name: " Installing docker.rpm latest version"
+    yum:
+     name: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     state: present
   - name: "Installing Docker"
     package:
      name: 'docker-1.13.1'
