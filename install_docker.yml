@@ -18,9 +18,11 @@
      state: latest
   - name: "Configring docker rpm"
     get_url:
-     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages
+     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/*.rpm
      dest: /tmp/Packages
      mode: 0644
+    #  with_items:
+    #   - 
   - name: "Installing Docker"
     package:
      name: 'docker'
