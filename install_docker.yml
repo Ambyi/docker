@@ -17,15 +17,36 @@
      name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
   - name: "Configring docker rpm"
-    get_url: url=http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/{{item}} dest=/tmp/Packages mode=0644
-    with_items:
-    - docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-    - docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-    - docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+    get_url:
+     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     dest: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     mode: 0644
+  - name: "Configring docker client rpm"
+    get_url:
+     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     dest: /tmp/docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     mode: 0644
+  - name: "Configring docker common rpm"
+    get_url:
+     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     dest: /tmp/docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     mode: 0644
+  - name: " Installing docker.rpm common latest version"
+    yum:
+     name: /tmp/docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     state: present
+  - name: " Installing docker.rpm client latest version"
+    yum:
+     name: /tmp/docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     state: present
+  - name: " Installing docker.rpm latest version"
+    yum:
+     name: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+     state: present
   - name: "Installing Docker"
     package:
-     name: 'docker'
-     state: present
+     name: 'docker-1.13.1'
+     state: latest
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
