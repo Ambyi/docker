@@ -24,7 +24,7 @@
   - name: "Installing Docker"
     package:
      name: 'docker-1.13'
-     state: prasent
+     state: present
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
