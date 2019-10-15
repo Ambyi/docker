@@ -18,11 +18,10 @@
      state: latest
   - name: "Configring docker rpm"
     get_url: url=http://mirrors.mit.edu/centos/7/extras/x86_64/Packages/{{item}} dest=/tmp/Packages mode=0644
-     with_items:
-     - docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-     - docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-     - docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
-
+    with_items:
+    - docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+    - docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
+    - docker-common-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
   - name: "Installing Docker"
     package:
      name: 'docker'
