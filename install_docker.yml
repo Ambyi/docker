@@ -16,10 +16,15 @@
     yum:
      name: ['yum-utils', 'device-mapper-persistent-data', 'lvm2']
      state: latest
+  - name: "Configring docker rpm"
+    get_url:
+     url: http://mirrors.mit.edu/centos/7/extras/x86_64/Packages
+     dest: /tmp/docker-1.13
+     mode: 0644
   - name: "Installing Docker"
     package:
-     name: 'docker'
-     state: latest
+     name: 'docker-1.13'
+     state: prasent
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
