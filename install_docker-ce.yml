@@ -11,16 +11,16 @@
   user: ec2-user
   become: yes
   tasks:
-    # - name: "Configring container-selinux rpm"
-    #   get_url:
-    #    url: http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+    - name: "Configring container-selinux rpm"
+      get_url:
+       url: http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
 
-    #    dest: /tmp/container-selinux-2.9-4.el7.noarch.rpm
-    #    mode: 0644
-    # - name: " Installing docker.rpm common latest version"
-    #   yum:
-    #     name: /tmp/container-selinux-2.9-4.el7.noarch.rpm
-    #     state: present
+       dest: /tmp/container-selinux-2.9-4.el7.noarch.rpm
+       mode: 0644
+    - name: " Installing docker.rpm common latest version"
+      yum:
+        name:  containerd.io
+        state: present
     - name: Install yum utils
       yum:
         name: yum-utils
