@@ -46,7 +46,7 @@
   - name: "Installing Docker"
     package:
      name: 'docker-ce-1.17.03'
-     state: latest
+     state: present
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
