@@ -33,14 +33,15 @@
       become: yes
     - name: "Configring container-selinux rpm"
       get_url:
-       url: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.95-2.el7_6.noarch.rpm
-       dest: /tmp/container-selinux-2.95-2.el7_6.noarch.rpm
+       url: http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+
+       dest: /tmp/container-selinux-2.9-4.el7.noarch.rpm
        mode: 0644
     - name: " Installing docker.rpm common latest version"
       yum:
-        name: /tmp/container-selinux-2.95-2.el7_6.noarch.rpm
+        name: /tmp/container-selinux-2.9-4.el7.noarch.rpm
         state: present
-        
+
     - name: Enable Docker Edge repo
       ini_file:
         dest: /etc/yum.repos.d/docer-ce.repo
