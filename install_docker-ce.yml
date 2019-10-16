@@ -1,4 +1,8 @@
 ---
+- hosts: all
+  user: ec2-user
+  become: yes
+  
 - name: Install docker
   gather_facts: No
   hosts: default
