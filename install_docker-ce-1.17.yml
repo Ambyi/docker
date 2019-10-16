@@ -43,10 +43,10 @@
   #   yum:
   #    name: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
   #    state: present
-  - name: "Installing Docker"
-    package:
-     name: 'docker-ce'
-     state: latest
+  # - name: "Installing Docker"
+  #   package:
+  #    name: 'docker-ce-1.17.03'
+  #    state: latest
     # with_items:
     # - yum-utils
     # - device-mapper-persistent-data
