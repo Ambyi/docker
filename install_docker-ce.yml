@@ -19,8 +19,13 @@
        mode: 0644
     - name: " Installing docker.rpm common latest version"
       yum:
-        name:  containerd.io
+        name:  /tmp/container-selinux-2.9-4.el7.noarch.rpm
         state: present
+    - name: Install containerd.io
+      yum:
+        name: containerd.io
+        state: latest
+
     - name: Install yum utils
       yum:
         name: yum-utils
