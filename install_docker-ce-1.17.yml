@@ -44,7 +44,7 @@
   #    name: /tmp/docker-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
   #    state: present
   - name: "Installing Docker"
-    package:
+    yum:
      name: 'docker-ce-17.03.2'
      state: present
     # with_items:
