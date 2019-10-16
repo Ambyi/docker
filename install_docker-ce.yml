@@ -4,8 +4,8 @@
   become: yes
 
 - name: Install docker
-  gather_facts: No
-  hosts: all
+  # gather_facts: No
+  # hosts: all
 
   tasks:
     - name: Install yum utils
