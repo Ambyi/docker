@@ -27,8 +27,8 @@
   #    dest: /tmp/docker-client-1.13.1-102.git7f2769b.el7.centos.x86_64.rpm
   #    mode: 0644
   - name: "Configring docker docker-ce-selinux rpm"
-    get_url: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
-     url: docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
+    get_url: 
+     url: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
      dest: /tmp/docker-ce-selinux-17.03.2.ce-1.el7.centos.noarch.rpm
      mode: 0644
   - name: " Installing docker.rpm docker-ce-selinux version"
