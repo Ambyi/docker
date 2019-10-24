@@ -3,8 +3,8 @@
   user: ec2-user
   become: yes
   tasks:
-  - name: "On eacConfigring rpmh host, register with RHSM"
-    shell: subscription-manager register --username=ec2-user --password=ec2-user
+  # - name: "On eacConfigring rpmh host, register with RHSM"
+  #   shell: subscription-manager register --username=ec2-user --password=ec2-user
   - name: "Pull the latest subscription data from RHSM"
     shell: subscription-manager refresh    
   - name: "List the available subscriptions:"
