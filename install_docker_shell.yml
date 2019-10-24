@@ -5,6 +5,8 @@
   tasks:
   # - name: "On eacConfigring rpmh host, register with RHSM"
   #   shell: subscription-manager register --username=ec2-user --password=ec2-user
+  - name: "Disable all the enabled RHSM repositories:"
+    shell: subscription-manager repos --disable="*"
   - name: "Pull the latest subscription data from RHSM"
     shell: subscription-manager refresh    
   - name: "List the available subscriptions:"
