@@ -6,10 +6,11 @@
   - name: "Configring rpm"
     shell: yum-config-manager --disable \*
   - name: "Configring rpm"
-    shell: `subscription-manager repos \
-    --enable="rhel-7-server-rpms" \
-    --enable="rhel-7-server-extras-rpms" \
-    --enable="rhel-7-server-ose-3.11-rpms" \
-    --enable="rhel-7-server-ansible-2.6-rpms"`
+    shell: | 
+      subscription-manager repos \
+      --enable="rhel-7-server-rpms" \
+      --enable="rhel-7-server-extras-rpms" \
+      --enable="rhel-7-server-ose-3.11-rpms" \
+      --enable="rhel-7-server-ansible-2.6-rpms"
   - name: "Configring rpm"
     shell: yum install docker-1.13.1
