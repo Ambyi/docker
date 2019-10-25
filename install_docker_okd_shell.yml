@@ -18,4 +18,4 @@
      bridge-utils bash-completion kexec-tools\
      sos psacct yum-utils
   - name: "Configring rpm"
-    shell: yum install docker-1.13.1
+    shell: yum -y install docker-1.13.1
