@@ -1,0 +1,21 @@
+---
+- hosts: all
+  user: ec2-user
+  become: yes
+  tasks:
+  # - name: "On eacConfigring rpmh host, register with RHSM"
+  #   shell: subscription-manager register --username=ec2-user --password=ec2-user
+  - name: "Disable all the enabled RHSM repositories:"
+    shell: sudo yum repolist disabled
+  - name: "enable the redhat-rhui.repo"
+    shell: sudo  yum-config-manager --enable /etc/yum.repos.d/redhat-rhui.repo    
+  - name: "Configring rpm"
+    shell: sudo yum-config-manager --enable "Red Hat Enterprise Linux Server 7 Extra(RPMs)"   
+  - name: "install dependency rpm"
+    shell: | 
+    yum install wget git net-tools\
+     bind-utils yum-utils iptables-services\
+     bridge-utils bash-completion kexec-tools\
+     sos psacct yum-utils
+  - name: "Configring docker-1.13.1"
+    shell: yum install docker-1.13.1
