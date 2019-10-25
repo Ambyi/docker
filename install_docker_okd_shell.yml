@@ -11,11 +11,11 @@
     shell: sudo  yum-config-manager --enable /etc/yum.repos.d/redhat-rhui.repo    
   - name: "Configring rpm"
     shell: sudo yum-config-manager --enable "Red Hat Enterprise Linux Server 7 Extra(RPMs)"   
-  - name: "install dependency rpm"
+  - name: "Configring rpm"
     shell: | 
-    yum install wget git net-tools \
-     bind-utils yum-utils iptables-services \
-     bridge-utils bash-completion kexec-tools \
+    yum install wget git net-tools\
+     bind-utils yum-utils iptables-services\
+     bridge-utils bash-completion kexec-tools\
      sos psacct yum-utils
-  - name: "Configring docker-1.13.1"
+  - name: "Configring rpm"
     shell: yum install docker-1.13.1
