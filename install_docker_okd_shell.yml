@@ -19,6 +19,6 @@
      sos psacct yum-utils
   - name: "Configring docker-1.13.1"
     shell: yum -y install docker-1.13.1
-  - name: "docker version-1.13.1"
-    shell: docker version
+  # - name: "docker version-1.13.1"
+  #   shell: docker version
     
