@@ -41,9 +41,9 @@
         SETUP_LVM_THIN_POOL=yes
         DATA_SIZE="100%FREE"
   - name: remove web dir contents
-     file: path='/var/lib/docker' state=absent
-     with_fileglob:
-       - /var/lib/docker/*
+    file:
+      state: absent
+      path: /var/lib/docker/*
   - name: " Starting and Enabling Docker service"
     service:
      name: docker
