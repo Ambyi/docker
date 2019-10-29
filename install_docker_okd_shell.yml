@@ -16,9 +16,39 @@
      yum install wget git net-tools\
      bind-utils yum-utils iptables-services\
      bridge-utils bash-completion kexec-tools\
-     sos psacct yum-utils
+     sos psacct yum-utils zile nano openssl-devel\
+     httpd-tools NetworkManager sshpass \
+     python-cryptography python2-pip python-devel  python-passlib \
+     python-paramiko 
+  - name: Starting  Network Manager
+    shell: systemctl start NetworkManager
+  - name:  enable Network Manager
+    shell: systemctl enable NetworkManager
   - name: "Configring docker-1.13.1"
     shell: yum -y install docker-1.13.1
+  - name: "setting the Docker storage"
+    file:
+      path: /dev/vdc
+      state: directory 
+      mode: '0755'
+  - name: Insert setting the Docker storage line at end in docker-storage-setup
+    blockinfile:
+      path: /etc/sysconfig/docker-storage-setup
+      insertafter: 'EOF'
+      block: |
+        DEVS=/dev/vdc
+        VG=docker-vg
+        SETUP_LVM_THIN_POOL=yes
+        DATA_SIZE="100%FREE"
+  - name: remove web dir contents
+     file: path='/var/lib/docker' state=absent
+     with_fileglob:
+       - /var/lib/docker/*
+  - name: " Starting and Enabling Docker service"
+    service:
+     name: docker
+     state: started
+     enabled: yes
   # - name: "docker version-1.13.1"
   #   shell: docker version
     
